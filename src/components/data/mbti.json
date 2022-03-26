@@ -1,1 +1,18 @@
-{"INTP":["Ti","Ne","Si","Fe"],"ISTP":["Ti","Se","Ni","Fe"],"ENTP":["Ne","Ti","Fe","Si"],"ENFP":["Ne","Fi","Te","Si"],"ISFP":["Fi","Se","Ni","Te"],"INFP":["Fi","Ne","Si","Te"],"INTJ":["Ni","Te","Fi","Se"],"INFJ":["Ni","Fe","Ti","Se"],"ESTJ":["Te","Si","Ne","Fi"],"ENTJ":["Te","Ni","Se","Fi"],"ESFJ":["Fe","Si","Ne","Ti"],"ENFJ":["Fe","Ni","Se","Ti"],"ISTJ":["Si","Te","Fi","Ne"],"ISFJ":["Si","Fe","Ti","Ne"],"ESTP":["Se","Ti","Fe","Ni"],"ESFP":["Se","Fi","Te","Ni"]}
+{
+  "INTP":["Ti","Ne","Si","Fe"],
+  "ENTP":["Ne","Ti","Fe","Si"],
+  "INFP":["Fi","Ne","Si","Te"],
+  "ENFP":["Ne","Fi","Te","Si"],
+  "INTJ":["Ni","Te","Fi","Se"],
+  "ENTJ":["Te","Ni","Se","Fi"],
+  "INFJ":["Ni","Fe","Ti","Se"],
+  "ENFJ":["Fe","Ni","Se","Ti"],
+  "ISTP":["Ti","Se","Ni","Fe"],
+  "ESTP":["Se","Ti","Fe","Ni"],
+  "ISFP":["Fi","Se","Ni","Te"],
+  "ESFP":["Se","Fi","Te","Ni"],
+  "ISTJ":["Si","Te","Fi","Ne"],
+  "ESTJ":["Te","Si","Ne","Fi"],
+  "ESFJ":["Fe","Si","Ne","Ti"],
+  "ISFJ":["Si","Fe","Ti","Ne"]
+}
