@@ -12,7 +12,7 @@ const Comparison = () => {
 
     const updateInputs = (event) => {
         setInputs({
-            ... inputs,
+            ...inputs,
             [event.target.name] : event.target.value
         })
     }
@@ -46,14 +46,14 @@ const Comparison = () => {
             </div>
 
             {
-                (inputs.mbti1 !== '' && inputs.mbti2 !== '')
+                (inputs.mbti1 !== '' && inputs.mbti2 !== '' && inputs.mbti1.match(/[IE]{1}[NS]{1}[TF]{1}[PJ]{1}/) && inputs.mbti2.match(/[IE]{1}[NS]{1}[TF]{1}[PJ]{1}/))
                     ?   <div className={'grid md:grid-cols-2 gap-6 mt-20 mb-8 px-3'}>
                             <div className={''}>
                                 <h2 className={'text-6xl'}>{inputs.mbti1}</h2>
                                 {
                                     mbti[inputs.mbti1].map((x,i) => {
                                         return (
-                                            <div className={'my-6'}>
+                                            <div key={'func1_'+x} className={'my-6'}>
                                                 <h4 className={'font-bold text-2xl'}>{func_desc[x].title} ({x})</h4>
                                                 <div className={'mt-3 text-gray-500 italic border-l-4 border-gray-200 px-2 py-1'}>
                                                     <p>{func_order[i].name}</p>
@@ -70,7 +70,7 @@ const Comparison = () => {
                                 {
                                     mbti[inputs.mbti2].map((x,i) => {
                                         return (
-                                            <div className={'my-6'}>
+                                            <div key={'func2_'+x} className={'my-6'}>
                                                 <h4 className={'font-bold text-2xl'}>{func_desc[x].title} ({x})</h4>
                                                 <div className={'mt-3 text-gray-500 italic border-l-4 border-gray-200 px-2 py-1'}>
                                                     <p>{func_order[i].name}</p>
