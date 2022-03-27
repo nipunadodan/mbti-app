@@ -101,7 +101,7 @@ const FindThatType = () => {
                                                         className={shade + ' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer'}
                                                         onClick={() => openModal({
                                                             title: func_desc[fun].title + ' (' + fun + ')',
-                                                            content: '<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500 font-bold mb-1">' + func_order[i].name + '</h4><p class="text-xs text-gray-500">' + func_order[i].desc + '</p></div>' + func_desc[fun].desc,
+                                                            content: '<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500 cuprum mb-1">' + func_order[i].name + '</h4><p class="text-xs text-gray-500">' + func_order[i].desc + '</p></div><p class="leading-6">' + func_desc[fun].desc+'</p>',
                                                         })}
                                                     >{fun}</span>
                                                 })
