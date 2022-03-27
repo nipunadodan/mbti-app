@@ -72,7 +72,7 @@ const Comparison = () => {
                                                 className={shade+' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer text-black'}
                                                 onClick={() => openModal({
                                                     title:func_desc[x].title+' ('+x+')',
-                                                    content:'<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500  mb-1 cuprum">'+func_order[i].name+'</h4><p class="text-xs text-gray-500">'+func_order[i].desc+'</p></div><p class="leading-6">'+func_desc[x].desc+'</p>',
+                                                    content:'<div class="border-l-4 dark:border-gray-400 pl-2 my-3"><h4 class="text-gray-500 dark:text-gray-400 mb-1 cuprum">'+func_order[i].name+'</h4><p class="text-xs text-gray-500 dark:text-gray-400">'+func_order[i].desc+'</p></div><p class="leading-6">'+func_desc[x].desc+'</p>',
                                                 })}
                                             >{x}</span>
                                         })

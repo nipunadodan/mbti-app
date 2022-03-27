@@ -51,15 +51,15 @@ export default function Modal(props) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white dark:bg-gray-700 shadow-xl rounded-2xl">
                                 <Dialog.Title
                                     as="h3"
-                                    className="text-2xl font-medium leading-6 text-gray-900"
+                                    className="text-2xl font-medium leading-6 text-gray-900 dark:text-gray-100"
                                 >
                                     {props.modal.title}
                                 </Dialog.Title>
                                 <div className="mt-2">
-                                    <div className="text-sm text-gray-700" dangerouslySetInnerHTML={createMarkup(props.modal.content)} />
+                                    <div className="text-sm text-gray-700 dark:text-gray-100" dangerouslySetInnerHTML={createMarkup(props.modal.content)} />
                                 </div>
 
                                 <div className="mt-4 text-right">
