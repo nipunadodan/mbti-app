@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import {Fragment, useEffect, useState} from 'react'
+import {createMarkup} from "../helpers";
 
 export default function Modal(props) {
     let [isOpen, setIsOpen] = useState(false)
@@ -58,9 +59,7 @@ export default function Modal(props) {
                                     {props.modal.title}
                                 </Dialog.Title>
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">
-                                        {props.modal.content}
-                                    </p>
+                                    <div className="text-sm text-gray-700" dangerouslySetInnerHTML={createMarkup(props.modal.content)} />
                                 </div>
 
                                 <div className="mt-4">

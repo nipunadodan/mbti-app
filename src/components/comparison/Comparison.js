@@ -7,6 +7,20 @@ import Modal from "../common/Modal";
 import Footer from "../common/Footer";
 
 const Comparison = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modal, setModal] = useState({
+        title:'',
+        content:''
+    });
+    function openModal(modal) {
+        setModal(modal)
+        setModalIsOpen(true)
+    }
+
+    function closeModal() {
+        setModalIsOpen(false)
+    }
+
     const [inputs, setInputs] = useState({
         mbti1:'',
         mbti2:''
@@ -20,8 +34,9 @@ const Comparison = () => {
     }
 
     return (
-        <div className={'container mx-auto'}>
+        <div className={'container mx-auto pb-20'}>
             <Header />
+            <Modal isOpen={modalIsOpen} closeModal={closeModal} modal={modal} />
             <div className={'flex justify-center flex-col text-center p-8'}>
                 <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Compare MBTI</h1>
                 <div className={'mt-6'}>
@@ -51,38 +66,20 @@ const Comparison = () => {
                                     {
                                         mbti[inputs[count]].map((x, i) => {
                                             let shade = 'bg-blue-'+(400 - i*100)
-                                            return <span key={'rounds_'+i+x} style={{width: '48px'}} className={shade+' rounded-full p-3 my-3 mx-1 inline-block'}>{x}</span>
+                                            return <span
+                                                key={'rounds_'+i+x}
+                                                style={{width: '48px'}}
+                                                className={shade+' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer'}
+                                                onClick={() => openModal({
+                                                    title:func_desc[x].title+' ('+x+')',
+                                                    content:'<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500 font-bold mb-1">'+func_order[i].name+'</h4><p class="text-xs text-gray-500">'+func_order[i].desc+'</p></div>'+func_desc[x].desc,
+                                                })}
+                                            >{x}</span>
                                         })
                                     }
                                 </div>
                             ))
                         }
-                        <div className={'grid md:grid-cols-2 gap-6 mt-20 mb-8 px-3'}>
-                            {
-                                Object.keys(inputs).map(count => (
-                                    <div key={count} className={''}>
-                                        <h2 className={'text-6xl'}>{inputs[count]}</h2>
-                                        {
-                                            mbti[inputs[count]].map((x, i) => {
-                                                return (
-                                                    <div key={'func1_' + x} className={'my-6'}>
-                                                        <h4 className={'font-bold text-2xl'}>{func_desc[x].title} ({x})</h4>
-                                                        <div
-                                                            className={'mt-3 text-gray-500 bold border-l-4 border-gray-200 px-2 py-1'}>
-                                                            <p className={'text-xl cuprum'}>{func_order[i].name}</p>
-                                                            <p className={'text-xs mt-1'}>{func_order[i].desc}</p>
-                                                        </div>
-                                                        <p className={'py-3'}>{func_desc[x].desc}</p>
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                ))
-
-                            }
-                            <Footer />
-                        </div>
                     </>
                     : <></>
             }
