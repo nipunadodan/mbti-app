@@ -3,6 +3,8 @@ import mbti from "../data/mbti.json"
 import func_desc from "../data/func_desc.json"
 import func_order from "../data/func_order.json"
 import Header from "../Header";
+import Modal from "../common/Modal";
+import Footer from "../common/Footer";
 
 const Comparison = () => {
     const [inputs, setInputs] = useState({
@@ -23,7 +25,7 @@ const Comparison = () => {
             <div className={'flex justify-center flex-col text-center p-8'}>
                 <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Compare MBTI</h1>
                 <div className={'mt-6'}>
-                    <p className={''}>Compare MBTI types with cognitive functions between,</p>
+                    <p className={''}>Compare cognitive functions of MBTI types between,</p>
                     <input className={'md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
                           key={'mbti_1'} placeholder={'MBTI Type to Compare 1'} name={'mbti1'} list={'types'} onChange={updateInputs}/>
                     <input className={'md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
@@ -43,13 +45,13 @@ const Comparison = () => {
                     ? <>
                         {
                             Object.keys(inputs).map(count => (
-                                <div className={'text-center'}>
+                                <div key={'rounds_'+count} className={'text-center'}>
                                     <h2 className={'text-3xl'}>{inputs[count]}</h2>
                                     <span className={'bg-blue-400 bg-blue-300 bg-blue-200 bg-blue-100'}></span>
                                     {
                                         mbti[inputs[count]].map((x, i) => {
                                             let shade = 'bg-blue-'+(400 - i*100)
-                                            return <span style={{width: '48px'}} className={shade+' rounded-full p-3 my-3 mx-1 inline-block'}>{x}</span>
+                                            return <span key={'rounds_'+i+x} style={{width: '48px'}} className={shade+' rounded-full p-3 my-3 mx-1 inline-block'}>{x}</span>
                                         })
                                     }
                                 </div>
@@ -58,7 +60,7 @@ const Comparison = () => {
                         <div className={'grid md:grid-cols-2 gap-6 mt-20 mb-8 px-3'}>
                             {
                                 Object.keys(inputs).map(count => (
-                                    <div className={''}>
+                                    <div key={count} className={''}>
                                         <h2 className={'text-6xl'}>{inputs[count]}</h2>
                                         {
                                             mbti[inputs[count]].map((x, i) => {
@@ -79,11 +81,7 @@ const Comparison = () => {
                                 ))
 
                             }
-                            <footer className={'mt-8 text-sm text-gray-500'}>
-                                <p>&copy; Nipuna Dodantenna 2021</p>
-                                <p>Special thanks to https://www.wellandgood.com/</p>
-                                <p>v2.0.0.000</p>
-                            </footer>
+                            <Footer />
                         </div>
                     </>
                     : <></>
