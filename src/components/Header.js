@@ -1,15 +1,16 @@
 import React from "react";
 import {Link, useLocation} from "react-router-dom";
+import ThemeToggle from "./common/ThemeToggle";
 
 const Header = () => {
     const location = useLocation()
     //console.log(location)
     return (
-        <div className={'text-center mt-12 mb-6'}>
+        <div className={'text-center pt-12 pb-6'}>
             <Link to={'/'}>
                 <h2 className={'text-3xl'}>MBTI Toolbox</h2>
             </Link>
-            <p className={'text-sm text-gray-500'}>Toolbox full of MBTI stuff</p>
+            <p className={'text-sm text-gray-500 dark:text-gray-200'}>A toolbox of MBTI stuff</p>
             {location.pathname === '/'
                 ?   <>
                         <hr className={'w-2/6 md:w-2/12 mt-16 mx-auto'} />
@@ -26,7 +27,7 @@ const Header = () => {
                         <hr className={'w-1/6 md:w-1/12 mx-auto'} />
                     </>
             }
-
+            <ThemeToggle />
         </div>
     )
 }

@@ -75,10 +75,10 @@ const FindThatType = () => {
                 <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Find that Type</h1>
                 <div className={'mt-6'}>
                     <p className={''}>Find types with cognitive functions on the,</p>
-                    <input name={'1'} placeholder={'1st function'} className={'md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
-                    <input name={'2'} placeholder={'2nd function'} className={'md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
-                    <input name={'3'} placeholder={'3rd function'} className={'md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
-                    <input name={'4'} placeholder={'4th function'} className={'md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
+                    <input name={'1'} placeholder={'1st function'} className={'dark:bg-gray-800 md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
+                    <input name={'2'} placeholder={'2nd function'} className={'dark:bg-gray-800 md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
+                    <input name={'3'} placeholder={'3rd function'} className={'dark:bg-gray-800 md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
+                    <input name={'4'} placeholder={'4th function'} className={'dark:bg-gray-800 md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3 mt-2'} onChange={updateInput}/>
                     {/*:<input name={'any'} placeholder={'Any place'} className={'md:w-1/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mx-3 mt-2'} onChange={updateInputAny}/>*/}
                 </div>
             </div>
@@ -98,7 +98,7 @@ const FindThatType = () => {
                                                     return <span
                                                         key={'rounds_' + i + fun}
                                                         style={{width: '48px'}}
-                                                        className={shade + ' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer'}
+                                                        className={shade + ' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer text-black'}
                                                         onClick={() => openModal({
                                                             title: func_desc[fun].title + ' (' + fun + ')',
                                                             content: '<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500 cuprum mb-1">' + func_order[i].name + '</h4><p class="text-xs text-gray-500">' + func_order[i].desc + '</p></div><p class="leading-6">' + func_desc[fun].desc+'</p>',

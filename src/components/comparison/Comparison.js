@@ -41,9 +41,9 @@ const Comparison = () => {
                 <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Compare MBTI</h1>
                 <div className={'mt-6'}>
                     <p className={''}>Compare cognitive functions of MBTI types between,</p>
-                    <input className={'md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
+                    <input className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
                           key={'mbti_1'} placeholder={'MBTI Type to Compare 1'} name={'mbti1'} list={'types'} onChange={updateInputs}/>
-                    <input className={'md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
+                    <input className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
                            key={'mbti_2'} placeholder={'MBTI Type to Compare 2'} name={'mbti2'} list={'types'} onChange={updateInputs}/>
                 </div>
                 <datalist id={'types'}>
@@ -69,7 +69,7 @@ const Comparison = () => {
                                             return <span
                                                 key={'rounds_'+i+x}
                                                 style={{width: '48px'}}
-                                                className={shade+' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer'}
+                                                className={shade+' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer text-black'}
                                                 onClick={() => openModal({
                                                     title:func_desc[x].title+' ('+x+')',
                                                     content:'<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500  mb-1 cuprum">'+func_order[i].name+'</h4><p class="text-xs text-gray-500">'+func_order[i].desc+'</p></div><p class="leading-6">'+func_desc[x].desc+'</p>',
