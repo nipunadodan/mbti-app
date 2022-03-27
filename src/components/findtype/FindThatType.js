@@ -85,24 +85,26 @@ const FindThatType = () => {
 
             {
                 (inputs.func_1 !== '' || inputs.func_2 !== '' || inputs.func_3 !== '' || inputs.func_4 !== '' || inputs.any !== '')
-                    ?   <div className={'mt-20 mb-20'}>
+                    ?   <div className={'mt-20 mb-20 text-center'}>
                             {
                                 filtered.map((x) => {
                                     return (
                                         <div className={'my-2 p-3'} key={x}>
                                             <h2 className={'text-6xl'}>{x}</h2>
-                                            <div className={'grid md:grid-cols-4 mt-4 mb-6'}>
+                                            <div className={''}>
                                             {
-                                                mbti[x].map((fun) => (
-                                                    <p key={x+fun+(Math.floor(Math.random()*10)).toString()}>
-                                                        {func_desc[fun].title} ({fun})
-                                                        <i
-                                                            className={'ml-1 la la-info-circle hover:text-blue-500 cursor-pointer'}
-                                                            onClick={() => openModal({
-                                                                title:func_desc[fun].title+' ('+fun+')',
-                                                                content:func_desc[fun].desc,
-                                                            })} /> </p>
-                                                ))
+                                                mbti[x].map((fun, i) => {
+                                                    let shade = 'bg-blue-' + (400 - i * 100)
+                                                    return <span
+                                                        key={'rounds_' + i + fun}
+                                                        style={{width: '48px'}}
+                                                        className={shade + ' rounded-full p-3 my-3 mx-1 inline-block cursor-pointer'}
+                                                        onClick={() => openModal({
+                                                            title: func_desc[fun].title + ' (' + fun + ')',
+                                                            content: '<div class="border-l-4 pl-2 my-3"><h4 class="text-gray-500 font-bold mb-1">' + func_order[i].name + '</h4><p class="text-xs text-gray-500">' + func_order[i].desc + '</p></div>' + func_desc[fun].desc,
+                                                        })}
+                                                    >{fun}</span>
+                                                })
                                             }
                                             </div>
                                         </div>
