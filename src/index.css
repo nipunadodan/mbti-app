@@ -18,3 +18,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-group input[type="radio"]:checked + label {
+    @apply text-white border bg-blue-500 border-blue-500;
+}

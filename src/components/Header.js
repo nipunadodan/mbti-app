@@ -14,7 +14,7 @@ const Header = () => {
             {location.pathname === '/'
                 ?   <>
                         <hr className={'w-2/6 md:w-2/12 mt-16 mx-auto'} />
-                        <nav className={'my-10 cuprum text-2xl md:text-5xl'}>
+                        <nav className={'my-6 md:my-10 cuprum text-xl md:text-5xl'}>
                             <Link to={'/compare'}>Compare MBTI</Link> | <Link to={'/find'}>Find that Type</Link>
                         </nav>
                         <hr className={'w-2/6 md:w-2/12 mx-auto'} />
