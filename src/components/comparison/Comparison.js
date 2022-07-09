@@ -6,6 +6,16 @@ import Header from "../Header";
 import Modal from "../common/Modal";
 import Footer from "../common/Footer";
 
+const MbtiList = (props) => {
+    return (
+        <>
+            <option>Select MBTI type</option>
+            {Object.keys(mbti).map((key) => (
+                <option key={key} value={key}>{key}</option>
+            ))}
+        </>
+    )
+}
 const Comparison = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modal, setModal] = useState({
@@ -41,10 +51,22 @@ const Comparison = () => {
                 <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Compare MBTI</h1>
                 <div className={'mt-6'}>
                     <p className={''}>Compare cognitive functions of MBTI types between,</p>
-                    <input className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
-                          key={'mbti_1'} placeholder={'MBTI Type to Compare 1'} name={'mbti1'} list={'types'} onChange={updateInputs}/>
-                    <input className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
-                           key={'mbti_2'} placeholder={'MBTI Type to Compare 2'} name={'mbti2'} list={'types'} onChange={updateInputs}/>
+                    <select
+                        className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
+                        key={'mbti_1'}
+                        placeholder={'MBTI Type to Compare 1'}
+                        name={'mbti1'}
+                        onChange={updateInputs}>
+                            <MbtiList />
+                    </select>
+                    <select
+                        className={'dark:bg-gray-800 md:w-1/3 mt-3 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mr-3'}
+                        key={'mbti_2'}
+                        placeholder={'MBTI Type to Compare 2'}
+                        name={'mbti2'}
+                        onChange={updateInputs}>
+                            <MbtiList />
+                    </select>
                 </div>
                 <datalist id={'types'}>
                     {
