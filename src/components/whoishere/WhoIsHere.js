@@ -7,6 +7,7 @@ import Modal from "../common/Modal";
 import Footer from "../common/Footer";
 
 const WhoIsHere = () => {
+    // Modal
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modal, setModal] = useState({
         title:'',
@@ -21,12 +22,12 @@ const WhoIsHere = () => {
         setModalIsOpen(false)
     }
 
+    // who is States
     const [inputs, setInputs] = useState({
-        1:'',
-        2:'',
-        3:'',
-        4:'',
-        any:''
+        1:'X',
+        2:'X',
+        3:'X',
+        4:'X'
     })
     const [filtered, setFiltered] = useState([]);
 
@@ -34,13 +35,6 @@ const WhoIsHere = () => {
         setInputs({
             ...inputs,
             [event.target.name] : event.target.value
-        })
-    }
-
-    const updateInputAny = (event) => {
-        setInputs({
-            ...inputs,
-            [event.target.name] : event.target.value.toUpperCase()
         })
     }
 
@@ -65,6 +59,25 @@ const WhoIsHere = () => {
         })
     },[inputs])
 
+    useEffect(() => {
+        setFiltered([]);
+        //const t = '['+inputs[1]+'|X]{1}|[n|s]{1}|[f|t]{1}|[j|p]{1}'
+        let search = '['+inputs[1]+']{1}['+inputs[2]+']{1}['+inputs[3]+']{1}['+inputs[4]+']{1}'
+        let q = ''
+        Object.keys(inputs).forEach((key) => {
+            q += ''
+        })
+        search = search.replaceAll('X', 'a-zA-Z')
+        console.log(search)
+        const regex = new RegExp(search, 'gi');
+        const keys = Object.keys(mbti).filter(key => key.match(regex));
+        let filtered = []
+        keys.forEach((key) => {
+            filtered.push({mbti:key, func: mbti[key]})
+        })
+        setFiltered(filtered);
+    },[inputs])
+
     return (
         <div className={'container mx-auto'}>
             <Header />
@@ -81,28 +94,36 @@ const WhoIsHere = () => {
                             <input name={'1'} type={"radio"} value={'I'} id={'I'} className={'hidden'} onChange={updateInput}/>
                             <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'I'}>I</label>
                             <input name={'1'} type={"radio"} value={'E'} id={'E'} className={'hidden'} onChange={updateInput}/>
-                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'E'}>E</label>
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'E'}>E</label>
+                            <input name={'1'} type={"radio"} value={'X'} id={'x1'} className={'hidden'} onChange={updateInput} />
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'x1'}>X</label>
                         </div>
                         <div className={'btn-group inline-block mr-4'}>
                             <p className={'my-6'}>Energy</p>
                             <input name={'2'} type={"radio"} value={'N'} id={'N'} className={'hidden'} onChange={updateInput}/>
                             <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'N'}>N</label>
                             <input name={'2'} type={"radio"} value={'S'} id={'S'} className={'hidden'} onChange={updateInput}/>
-                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'S'}>S</label>
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'S'}>S</label>
+                            <input name={'2'} type={"radio"} value={'X'} id={'x2'} className={'hidden'} onChange={updateInput} />
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'x2'}>X</label>
                         </div>
                         <div className={'btn-group inline-block mr-4'}>
                             <p className={'my-6'}>Nature</p>
                             <input name={'3'} type={"radio"} value={'T'} id={'T'} className={'hidden'} onChange={updateInput}/>
                             <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'T'}>T</label>
                             <input name={'3'} type={"radio"} value={'F'} id={'F'} className={'hidden'} onChange={updateInput}/>
-                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'F'}>F</label>
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'F'}>F</label>
+                            <input name={'3'} type={"radio"} value={'X'} id={'x3'} className={'hidden'} onChange={updateInput} />
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'x3'}>X</label>
                         </div>
                         <div className={'btn-group inline-block mr-4'}>
                             <p className={'my-6'}>Tactics</p>
                             <input name={'4'} type={"radio"} value={'P'} id={'P'} className={'hidden'} onChange={updateInput}/>
                             <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'P'}>P</label>
                             <input name={'4'} type={"radio"} value={'J'} id={'J'} className={'hidden'} onChange={updateInput}/>
-                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'J'}>J</label>
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer mr-1'} htmlFor={'J'}>J</label>
+                            <input name={'4'} type={"radio"} value={'X'} id={'x4'} className={'hidden'} onChange={updateInput} />
+                            <label className={'border border-gray-400 rounded px-6 py-3 cursor-pointer'} htmlFor={'x4'}>X</label>
                         </div>
                     </div>
                     {/*:<input name={'any'} placeholder={'Any place'} className={'md:w-2/12 w-1/5 border border-gray-400 focus:border-blue-500 outline-0 rounded p-3 mx-3 mt-2'} onChange={updateInputAny}/>*/}
@@ -110,16 +131,16 @@ const WhoIsHere = () => {
             </div>
 
             {
-                (inputs.func_1 !== '' || inputs.func_2 !== '' || inputs.func_3 !== '' || inputs.func_4 !== '' || inputs.any !== '')
+                (inputs.func_1 !== '' || inputs.func_2 !== '' || inputs.func_3 !== '' || inputs.func_4 !== '')
                     ?   <div className={'mt-20 mb-20 text-center'}>
                             {
-                                filtered.map((x) => {
+                                filtered.map((x,index) => {
                                     return (
-                                        <div className={'my-2 p-3'} key={x}>
-                                            <h2 className={'text-6xl'}>{x}</h2>
+                                        <div className={'my-2 p-3'} key={index}>
+                                            <h2 className={'text-6xl'}>{x.mbti}</h2>
                                             <div className={''}>
                                             {
-                                                mbti[x].map((fun, i) => {
+                                                x.func.map((fun, i) => {
                                                     let shade = 'bg-blue-' + (400 - i * 100)
                                                     return <span
                                                         key={'rounds_' + i + fun}
