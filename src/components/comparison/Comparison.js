@@ -6,7 +6,7 @@ import Header from "../Header";
 import Modal from "../common/Modal";
 import Footer from "../common/Footer";
 
-const MbtiList = (props) => {
+const MbtiList = () => {
     return (
         <>
             <option>Select MBTI type</option>
