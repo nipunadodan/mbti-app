@@ -58,7 +58,7 @@ const WhoIsHere = () => {
             <Modal isOpen={modalIsOpen} closeModal={closeModal} modal={modal} />
 
             <div className={'flex justify-center flex-col text-center p-8'}>
-                <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Who is Here</h1>
+                <h1 className={'text-5xl md:text-8xl mb-4 inline-block'}>Filter 'em</h1>
                 <div className={'mt-6'}>
                     <p className={''}>Find types with MBTI functions on the,</p>
                     <div className={'inline-block'}>
