@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={'flex pt-3 pb-6'}>
+            <header className={'flex pt-3 pb-6 px-2'}>
                 <i className={'la la-bars py-2 px-4 cursor-pointer'} onClick={menuToggle}></i>
                 <h2 className={'text-2xl flex-grow text-center'}><Link to={'/'}>MBTI Toolbox</Link></h2>
                 <ThemeToggle/>
