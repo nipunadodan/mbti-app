@@ -28,7 +28,7 @@ const Header = () => {
                 <ThemeToggle/>
             </header>
             {menuOpen
-                ?<nav>
+                ?<nav className={'text-xl'}>
                     <NavMenu/>
                 </nav>
                 : <></>
