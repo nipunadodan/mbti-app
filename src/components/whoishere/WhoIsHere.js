@@ -40,35 +40,8 @@ const WhoIsHere = () => {
 
     useEffect(() => {
         setFiltered([]);
-        const results = [];
-
-        Object.keys(inputs).map(input => {
-            Object.keys(mbti).map(key => {
-                //mbti[key].map(func => {
-                if(input !== 'any') {
-                    const position = parseInt(input) - 1
-                    if (mbti[key][position].toUpperCase() === inputs[input]) {
-                        results.push(key)
-                        setFiltered([...new Set(results)])
-                        //console.log('filtered',input,key,mbti[key][position],results,filtered)
-                    }
-                    return false
-                    //})
-                }
-            })
-        })
-    },[inputs])
-
-    useEffect(() => {
-        setFiltered([]);
-        //const t = '['+inputs[1]+'|X]{1}|[n|s]{1}|[f|t]{1}|[j|p]{1}'
-        let search = '['+inputs[1]+']{1}['+inputs[2]+']{1}['+inputs[3]+']{1}['+inputs[4]+']{1}'
-        let q = ''
-        Object.keys(inputs).forEach((key) => {
-            q += ''
-        })
+        let search = '['+inputs[1]+']{1}['+inputs[2]+']{1}['+inputs[3]+']{1}['+inputs[4]+']{1}';
         search = search.replaceAll('X', 'a-zA-Z')
-        console.log(search)
         const regex = new RegExp(search, 'gi');
         const keys = Object.keys(mbti).filter(key => key.match(regex));
         let filtered = []
