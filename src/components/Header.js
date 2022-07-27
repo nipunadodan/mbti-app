@@ -5,9 +5,9 @@ import ThemeToggle from "./common/ThemeToggle";
 const NavMenu = () => {
     return (
         <>
-            <li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}><Link to={'/compare'}>Compare MBTI</Link></li>
-            <li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}><Link to={'/find'}>Find that Type</Link></li>
-            <li className={'py-4 mr-2 text-center block cuprum'}><Link to={'/who'}>Filter 'em</Link></li>
+        <Link to={'/compare'}><li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}>Compare MBTI</li></Link>
+        <Link to={'/find'}><li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}>Find that Type</li></Link>
+        <Link to={'/who'}><li className={'py-4 mr-2 text-center block cuprum'}>Filter 'em</li></Link>
         </>
     )
 }
@@ -28,9 +28,9 @@ const Header = () => {
                 <ThemeToggle/>
             </header>
             {menuOpen
-                ?<nav className={'text-xl mb-6 bg-gray-100 dark:bg-gray-700'}>
-                    <NavMenu/>
-                </nav>
+                ? <nav className={'text-xl mb-6 bg-gray-100 dark:bg-gray-700'}>
+                      <NavMenu/>
+                  </nav>
                 : <></>
             }
         </>

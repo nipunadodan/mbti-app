@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import mbti from "../data/mbti.json"
-import func_desc from "../data/func_desc.json"
-import func_order from "../data/func_order.json"
+import mbti from "../../data/mbti.json"
+import func_desc from "../../data/func_desc.json"
+import func_order from "../../data/func_order.json"
 import Header from "../Header";
 import Modal from "../common/Modal";
 import Footer from "../common/Footer";
