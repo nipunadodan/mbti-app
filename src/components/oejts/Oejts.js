@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import oejts from "../../data/oejts_questions.json"
 import Header from "../common/Header";
 import {capitalize} from "../helpers";
+import Footer from "../common/Footer";
+import Option from "./Option";
 
 const Oejts = () => {
     const [inputs, setInputs] = useState({})
@@ -25,6 +27,15 @@ const Oejts = () => {
             ...inputs,
             [event.target.name] : parseInt(event.target.value)
         })
+    }
+
+    const reset = () => {
+        setInputs({});
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
     }
 
     useEffect(()=>{
@@ -53,30 +64,26 @@ const Oejts = () => {
     },[subTotal])
 
     return (
-        <>
-            <div className={'container mx-auto pb-8'}>
-                <Header />
-                <h1 className={'text-5xl md:text-8xl mb-4 text-center'}>OEJTS</h1>
-                <p className={'text-center mb-8'}>Open Extended Jungian Type Scales v1.2</p>
-                {oejts.map(({left, right},index) =>(
-                    <div key={index} className={'grid md:grid-cols-3 py-3 align-middle flex'}>
-                        <div className={'md:text-right px-6 md:px-0'}>{capitalize(left)}</div>
-                        <div className={'flex justify-center'}>
-                            {[1,2,3,4,5].map((points,unique) => (
-                                <div key={unique} className={'btn-group inline-block mx-2'}>
-                                    <input name={'q'+(index+1)} type={"radio"} value={points} id={index + '_' + points} className={'hidden'} onChange={updateInput}/>
-                                    <label className={'inline-block border border-gray-400 rounded px-6 py-3 cursor-pointer '} htmlFor={index + '_' + points}>{points}</label>
-                                </div>
-                            ))}
-                        </div>
-                        <div className={'text-right md:text-left px-6 md:px-0'}>{capitalize(right)}</div>
+        <div className={'container mx-auto pb-8'}>
+            <Header />
+            <h1 className={'text-5xl md:text-8xl mb-4 text-center'}>OEJTS</h1>
+            <p className={'text-center mb-8'}>Open Extended Jungian Type Scales v1.2</p>
+            {oejts.map(({left, right},index) =>(
+                <div key={index} className={'grid md:grid-cols-3 py-3 align-middle flex'}>
+                    <div className={'md:text-right px-6 md:px-0'}>{capitalize(left)}</div>
+                    <Option key={index} index={index} updateInput={(e)=>updateInput(e)} inputs={inputs} />
+                    <div className={'text-right md:text-left px-6 md:px-0'}>{capitalize(right)}</div>
+                </div>
+            ))}
+            {
+                !isNaN(subTotal.total) &&
+                    <div className={'flex align-middle justify-center'}>
+                        <h2 className={'text-8xl text-center my-6'}>{results.final}</h2>
+                        <i className={'la la-redo-alt border rounded-full p-2 ml-4 self-center cursor-pointer'} onClick={reset} />
                     </div>
-                ))}
-                {
-                    !isNaN(subTotal.total) && <h2 className={'text-4xl text-center'}>{results.final}</h2>
-                }
-            </div>
-        </>
+            }
+            <Footer />
+        </div>
     )
 }
 

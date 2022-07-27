@@ -134,6 +134,7 @@ const WhoIsHere = () => {
                         </div>
                     :   <>No inputs</>
             }
+            <Footer />
         </div>
     )
 }

@@ -4,7 +4,6 @@ import func_desc from "../../data/func_desc.json"
 import func_order from "../../data/func_order.json"
 import Header from "../common/Header";
 import Modal from "../common/Modal";
-import Footer from "../common/Footer";
 
 const FunctionsList = (props) => {
     return (
@@ -48,18 +47,11 @@ const FindThatType = () => {
         })
     }
 
-    const updateInputAny = (event) => {
-        setInputs({
-            ...inputs,
-            [event.target.name] : event.target.value.toUpperCase()
-        })
-    }
-
     useEffect(() => {
         setFiltered([]);
         const results = [];
 
-        Object.keys(inputs).map(input => {
+        Object.keys(inputs).map(input => (
             Object.keys(mbti).map(key => {
                 //mbti[key].map(func => {
                 if(input !== 'any') {
@@ -72,8 +64,9 @@ const FindThatType = () => {
                     return false
                     //})
                 }
+                return false
             })
-        })
+        ))
     },[inputs])
 
     return (

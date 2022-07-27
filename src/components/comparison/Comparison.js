@@ -4,7 +4,6 @@ import func_desc from "../../data/func_desc.json"
 import func_order from "../../data/func_order.json"
 import Header from "../common/Header";
 import Modal from "../common/Modal";
-import Footer from "../common/Footer";
 
 const MbtiList = () => {
     return (

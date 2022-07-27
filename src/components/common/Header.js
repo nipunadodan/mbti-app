@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 const NavMenu = () => {
@@ -7,14 +7,13 @@ const NavMenu = () => {
         <>
         <Link to={'/compare'}><li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}>Compare MBTI</li></Link>
         <Link to={'/find'}><li className={'py-4 mr-2 border-b border-gray-200 dark:border-gray-600 text-center block cuprum'}>Find that Type</li></Link>
-        <Link to={'/who'}><li className={'py-4 mr-2 text-center block cuprum'}>Filter 'em</li></Link>
+        <Link to={'/who'}><li className={'py-4 mr-2 text-center block cuprum border-b border-gray-200 dark:border-gray-600'}>Filter 'em</li></Link>
         <Link to={'/oejts'}><li className={'py-4 mr-2 text-center block cuprum'}>OEJTS</li></Link>
         </>
     )
 }
 
 const Header = () => {
-    const location = useLocation()
     const [menuOpen, setMenuOpen] = useState(false)
 
     const menuToggle = () => {
