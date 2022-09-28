@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Comparison from "./components/comparison/Comparison";
-import FindThatType from "./components/findtype/FindThatType";
+import CogFuncs from "./components/findtype/CogFuncs";
 import {ThemeProvider} from "./components/common/ThemeContext";
-import WhoIsHere from "./components/whoishere/WhoIsHere";
+import Filter from "./components/filter/Filter";
 import Oejts from "./components/oejts/Oejts";
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/compare" element={<Comparison />} />
-              <Route path="/find" element={<FindThatType />} />
-              <Route path="/who" element={<WhoIsHere />} />
+              <Route path="/find" element={<CogFuncs />} />
+              <Route path="/who" element={<Filter />} />
               <Route path="/oejts" element={<Oejts />} />
             </Routes>
           </BrowserRouter>

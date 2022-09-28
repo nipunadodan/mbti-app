@@ -16,7 +16,7 @@ const FunctionsList = (props) => {
     )
 }
 
-const FindThatType = () => {
+const CogFuncs = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [modal, setModal] = useState({
         title:'',
@@ -130,4 +130,4 @@ const FindThatType = () => {
     )
 }
 
-export default FindThatType
+export default CogFuncs
